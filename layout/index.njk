@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+{% import "includes/shared.njk" as shared with context %}
+{% if page.archive %}
+  {% set title = __('index.archive_title.yearly', page.year) %}
+{% elif page.tag %}
+  {% set title = __('index.tag_title', page.tag) %}
+{% else %}
+  {% set title = page.title or config.title or "Page" %}
+{% endif %}
+<html lang="{{ config.language }}">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{{ title }}</title>
+    <link href="{{ url_for('index.css') }}" rel="stylesheet"/>
+    <link href="{{ url_for('styles/materialdesignicons.min.css') }}" rel="stylesheet"/>
+    <script type="module" src="/index.js"></script>
+  </head>
+  <body>
+    {{ shared.sitenav(title) }}
+    <div id="_layout">
+      <main>
+        <ul class="post-list">
+          {% for post in page.posts.toArray() %}
+            <li class="post-item">
+              <div class="post-item-title">
+                <a href="{{ url_for(post.path) }}">
+                  <h6>{{ post.title if post.title else post.path }}</h6>
+                </a>
+                <time data-time-format="iso" datetime="{{ post.date.format() }}">{{ post.date.format("YYYY/MM/DD") }}</time>
+              </div>
+              <div class="content">{{ post.excerpt }}</div>
+            </li>
+          {% endfor %}
+        </ul>
+        <div style="display: flex; justify-content: center; margin: 16px;">
+          <div class="pager">
+            {{ paginator({
+            prev_text: '<i class="mdi mdi-chevron-left" aria-label="' + __('index.prev_page') + '"></i>',
+            next_text: '<i class="mdi mdi-chevron-right" aria-label="' + __('index.next_page') +'"></i>',
+            escape: false
+            }) }}
+          </div>
+        </div>
+      </main>
+      <div style="display: flex; flex-flow: column nowrap; gap: 16px;">
+        <div class="card" style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between">
+          <div class="author-head">
+            <img class="circle avatar" src="{{ gravatar(config.email if config.email else 'example@foo.bar') }}"/>
+            <span>{{ config.author }}</span>
+            <div>
+              {{ config.description }}
+            </div>
+          </div>
+          <div>
+            <ul class="link-list">
+              {% for link_object in shared.theme.site_links %}
+                <li {% if link_object.class %} class="{{ link_object.class }}" {% endif %}>
+                  <a {% if link_object.rel %} rel="{{ link_object.rel }}" {% endif %} {% if link_object.href %} href="{{ link_object.href }}" {% endif %}>
+                    {{ link_object.name if link_object.name else link_object.href }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% if page.archive %}
+          {% set tags = tags_of_year(page.year) %}
+        {% else %}
+          {% set tags = site.tags.sort('name', 1).toArray() %}
+        {% endif %}
+        <div class="card">
+          <h6 id="tags-title">{{ __('index.tags_title.yearly', page.year) if page.archive else __('index.tags_title.all') }}</h6>
+          <ul class="chip-group" style="padding: 0; margin-top: 8px;" aria-labelledby="tags-title">
+            {% for tag in tags %}
+              <li>
+                <a {% if tag.length > 1 %} class="chip hottag-chip" {% else %} class="chip" {% endif %} href="{{ url_for(tag.path) }}">{{ tag.name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

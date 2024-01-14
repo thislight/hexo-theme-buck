@@ -1,0 +1,40 @@
+@import "./styles/material.css";
+
+#_layout {
+  display: grid;
+  margin-inline: 60px;
+  padding-block: 24px;
+}
+
+@media (max-width: 720px) {
+  #_layout {
+    margin-inline: 8px;
+  }
+}
+
+#_layout> :first-child {
+  max-width: 560px;
+}
+
+.archive-list {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 12px;
+  padding: 0;
+}
+
+.archive-list-item {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--palette-grey-500);
+}
+
+a.archive-list-link {
+  font: var(--typ-title);
+  line-height: 2;
+  padding-right: 48px;
+  padding-left: 16px;
+  text-align: start;
+}

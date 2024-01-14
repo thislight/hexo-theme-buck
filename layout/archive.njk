@@ -1,0 +1,22 @@
+{% import "includes/shared.njk" as shared with context %}
+{% if (page.archive and page.year) or page.tag or page.category %}
+  {% include "./index.njk" %}
+{% else %}
+  <!DOCTYPE html>
+  <html lang="{{ config.language }}">
+    <head>
+      <meta charset="utf-8"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+      <title>{{ __('archives.title') }}</title>
+      <link href="{{ url_for('archive.css') }}" rel="stylesheet"/>
+    </head>
+    <body>
+      {{ shared.sitenav(__('archives.title')) }}
+      <div id="_layout">
+        {{ list_archives({
+          type: 'yearly'
+        }) }}
+      </div>
+    </body>
+  </html>
+{% endif %}

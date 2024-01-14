@@ -1,0 +1,30 @@
+
+.pager {
+  display: grid;
+  width: fit-content;
+  grid-auto-columns: minmax(44px, 1fr);
+  grid-auto-flow: column;
+  gap: 16px;
+  row-gap: 8px;
+  font-size: 1.125rem;
+
+  > :is(.extend, .page-number) {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  > .extend > .mdi {
+    font-size: 1.375em;
+  }
+
+  > .extend {
+    background-color: var(--p-secondary);
+    color: var(--p-secondary-fg);
+
+    &:is(:hover, :focus) {
+      filter: saturate(0.65);
+    }
+  }
+}

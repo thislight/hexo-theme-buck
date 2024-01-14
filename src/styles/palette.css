@@ -1,0 +1,51 @@
+:root {
+  --palette-black: #000000;
+  --palette-white: #ffffff;
+
+  --palette-blue-50: #e3f2fd;
+  --palette-blue-50-fg: var(--palette-black);
+  --palette-blue-100: #bbdefb;
+  --palette-blue-100-fg: var(--palette-black);
+  --palette-blue-200: #90caf9;
+  --palette-blue-200-fg: var(--palette-black);
+  --palette-blue-400: #42a5f5;
+  --palette-blue-400-fg: var(--palette-black);
+  --palette-blue-500: #2196f3;
+  --palette-blue-500-fg: var(--palette-black);
+  --palette-blue-600: #1e88e5;
+  --palette-blue-600-fg: var(--palette-white);
+  --palette-blue-700: #1976d2;
+  --palette-blue-700-fg: var(--palette-white);
+  --palette-blue-800: #1565c0;
+  --palette-blue-800-fg: var(--palette-white);
+  --palette-blue-900: #0d47a1;
+  --palette-blue-900-fg: var(--palette-white);
+  --palette-blue-a100: #82b1ff;
+  --palette-blue-a100-fg: var(--palette-black);
+  --palette-blue-a200: #448aff;
+  --palette-blue-a200-fg: var(--palette-white);
+  --palette-blue-a400: #2979ff;
+  --palette-blue-a400-fg: var(--palette-white);
+  --palette-blue-a700: #2962ff;
+  --palette-blue-a700-fg: var(--palette-white);
+
+  --palette-grey-50: #fafafa;
+  --palette-grey-50-fg: var(--palette-black);
+  --palette-grey-100: #f5f5f5;
+  --palette-grey-100-fg: var(--palette-black);
+  --palette-grey-200: #eeeeee;
+  --palette-grey-200-fg: var(--palette-black);
+  --palette-grey-300: #e0e0e0;
+  --palette-grey-300-fg: var(--palette-black);
+  --palette-grey-400: #bdbdbd;
+  --palette-grey-400-fg: var(--palette-black);
+  --palette-grey-500: #9e9e9e;
+  --palette-grey-500-fg: var(--palette-black);
+  --palette-grey-600: #757575;
+  --palette-grey-600-fg: white;
+  --palette-grey-700: #616161;
+  --palette-grey-700-fg: white;
+
+  --palette-pink-500: #e91e63;
+  --palette-pink-500-fg: var(--palette-white);
+}

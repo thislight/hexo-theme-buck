@@ -1,0 +1,16 @@
+{% set theme = site.data.theme %}
+
+{% macro sitenav(title = config.title) %}
+<div class="nav-wrapper">
+  <nav class="site">
+    <div>
+      <h6>{{ title }}</h6>
+    </div>
+    <div>
+      {% for name, link in theme.site_nav_links %}
+        <a href="{{ link }}">{{ name }}</a>
+      {% endfor %}
+    </div>
+  </nav>
+</div>
+{% endmacro %}

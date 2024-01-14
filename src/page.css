@@ -1,0 +1,40 @@
+@import "./styles/material.css";
+@import "./styles/content.css";
+
+:root {
+  background-color: var(--palette-grey-200);
+}
+
+#_layout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  margin: auto;
+
+  &>* {
+    overflow: hidden;
+    word-wrap: normal;
+  }
+}
+
+.page-metadata {
+  display: grid;
+  justify-content: flex-end;
+  margin-inline: 16px;
+  gap: 4px;
+  color: var(--palette-grey-700);
+
+  > * {
+    display: flex;
+    gap: 2px;
+    justify-content: flex-end;
+  }
+}
+
+main {
+  max-width: 70rem;
+  margin-top: 32px;
+  margin-bottom: calc(env(safe-area-insets-bottom, 16px) + 16px);
+  background-color: var(--palette-grey-50);
+  padding-block: 16px;
+  border-radius: 2px;
+}

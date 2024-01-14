@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+{% import "includes/shared.njk" as shared with context %}
+<html lang="{{ config.language }}" prefix="og: https://ogp.me/ns#">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="hexo-theme-buck:transform" content="post" />
+    <title>{{ page.title or config.title or "Page" }}</title>
+    <link href="/page.css" rel="stylesheet"/>
+    <script type="module" src="/page.js"></script>
+  </head>
+  <body>
+    {{ shared.sitenav(page.title) }}
+    <div id="_layout">
+      <div></div>
+      <main class="content">
+        <h1>{{ page.title }}</h1>
+        <div class="page-metadata">
+          <span>
+            <time data-time-format="iso" datetime="{{ page.date.format() }}">{{ page.date.format() }}</time>
+            {{ __('page.created') }}</span>
+          <span>
+            <time data-time-format="iso" datetime="{{ page.updated.format() }}">{{ page.updated.format() }}</time>
+            {{ __('page.updated') }}</span>
+          {% if not page.published %}
+            <span>{{ __('page.not_published') }}</span>
+          {% endif %}
+        </div>
+        {{ page.content }}
+      </main>
+      <div></div>
+    </div>
+  </body>
+</html>

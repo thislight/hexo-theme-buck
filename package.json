@@ -1,0 +1,24 @@
+{
+  "name": "buck",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node --no-warnings --loader ts-node/esm build.ts",
+    "dev": "node --no-warnings --loader ts-node/esm watch.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "esbuild": "^0.19.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "@fontsource/roboto": "^5.0.8",
+    "date-fns": "^3.1.0",
+    "solid-js": "^1.8.8"
+  }
+}

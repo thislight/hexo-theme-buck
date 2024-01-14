@@ -1,0 +1,19 @@
+
+index:
+  archive_title:
+    yearly: "%s年的归档"
+  tags_title:
+    all: "所有标签"
+    yearly: "%s年的标签"
+  tag_title: '标记为"%s"的文章'
+  prev_page: "上一页"
+  next_page: "下一页"
+
+page:
+  created: "创建"
+  updated: "更新"
+  created_by: "由%s创建"
+  not_published: "这是一篇草稿"
+
+archives:
+  title: "归档"

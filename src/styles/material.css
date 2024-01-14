@@ -1,0 +1,257 @@
+@import "./palette.css";
+@import "@fontsource/roboto/400.css";
+@import "@fontsource/roboto/100.css";
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: var(--font-family-sans);
+}
+
+:root {
+  --font-family-sans: Roboto, "Noto Sans", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  --p-primary: var(--palette-blue-500);
+  --p-primary-fg: var(--palette-blue-500-fg);
+  --p-secondary: var(--palette-pink-500);
+  --p-secondary-fg: var(--palette-pink-500-fg);
+
+  --typ-r-display4: lighter 7rem / 7rem var(--font-family-sans);
+  --typ-r-display3: normal 3.5rem / 3.5rem var(--font-family-sans);
+  --typ-r-display2: normal 2.8125rem / 2.8125rem var(--font-family-sans);
+  --typ-r-display1: normal 2.125rem / 2.125rem var(--font-family-sans);
+  --typ-r-headline: bold 1.5rem / 1.5rem var(--font-family-sans);
+  --typ-r-title: bold 1.25rem / 1.25rem var(--font-family-sans);
+  --typ-r-subheading: normal 1rem / 1rem var(--font-family-sans);
+  --typ-r-body2: bold 0.875rem / 0.875rem var(--font-family-sans);
+  --typ-r-body1: normal 0.875rem / 0.875rem var(--font-family-sans);
+  --typ-r-caption: normal 0.75rem / 0.75rem var(--font-family-sans);
+  --typ-r-button: bold 0.875rem / 0.875rem var(--font-family-sans);
+
+  --typ-d-display4: var(--typ-r-display4);
+  --typ-d-display3: var(--typ-r-display3);
+  --typ-d-display2: var(--typ-r-display2);
+  --typ-d-display1: var(--typ-r-display1);
+  --typ-d-headline: var(--typ-r-headline);
+  --typ-d-title: bold 1.3125rem / 1.3125rem var(--font-family-sans);
+  --typ-d-subheading: normal 1.0625rem / 1.0625rem var(--font-family-sans);
+  --typ-d-body2: bold 0.9375rem / 0.9375rem var(--font-family-sans);
+  --typ-d-body1: normal 0.9375rem / 0.9375rem var(--font-family-sans);
+  --typ-d-caption: normal 0.8125rem / 0.8125rem var(--font-family-sans);
+  --typ-d-button: bold 0.9375rem / 0.9375rem var(--font-family-sans);
+
+  & {
+    --typ-display4: var(--typ-r-display4);
+    --typ-display3: var(--typ-r-display3);
+    --typ-display2: var(--typ-r-display2);
+    --typ-display1: var(--typ-r-display1);
+    --typ-headline: var(--typ-r-display1);
+    --typ-title: var(--typ-r-title);
+    --typ-subheading: var(--typ-r-subheading);
+    --typ-body2: var(--typ-r-body2);
+    --typ-body1: var(--typ-r-body1);
+    --typ-caption: var(--typ-r-caption);
+    --typ-button: var(--typ-r-button);
+  }
+
+  &[lang~="zh"],
+  &[lang~="ja"],
+  &[lang~="kr"] {
+    --typ-title: var(--typ-d-headline);
+    --typ-subheading: var(--typ-d-subheading);
+    --typ-body2: var(--typ-d-body2);
+    --typ-body1: var(--typ-d-body1);
+    --typ-caption: var(--typ-d-caption);
+    --typ-button: var(--typ-d-button);
+  }
+
+  --elevation-0: 0px;
+  --elevation-1: 1px;
+  --elevation-2: 2px;
+  --elevation-3: 3px;
+  --elevation-4: 4px;
+  --elevation-5: 6px;
+  --elevation-6: 8px;
+  --elevation-7: 9px;
+  --elevation-8: 12px;
+  --elevation-9: 16px;
+  --elevation-10: 24px;
+
+  --box-shadow-2: 0 var(--elevation-2) var(--elevation-2) rgba(0, 0, 0, 0.15);
+  --box-shadow-4: 0 var(--elevation-4) var(--elevation-4) rgba(0, 0, 0, 0.15);
+  --box-shadow-6: 0 var(--elevation-6) var(--elevation-6) rgba(0, 0, 0, 0.15);
+  --box-shadow-9: 0 var(--elevation-9) var(--elevation-9) rgba(0, 0, 0, 0.15);
+
+  --link-bg: var(--palette-blue-50);
+  --link-color: var(--palette-blue-50-fg);
+  --link-bg-hover: var(--palette-blue-100);
+  --link-color-hover: var(--palette-blue-100-fg);
+}
+
+table {
+  --table-header-color: rgba(0, 0, 0, 0.54);
+  --table-content-color: rgba(0, 0, 0, 0.87);
+  --table-background-color: white;
+}
+
+:root {
+  font: var(--typ-body1);
+}
+
+h1 {
+  font: var(--typ-display4);
+}
+
+h2 {
+  font: var(--typ-display3);
+}
+
+h3 {
+  font: var(--typ-display2);
+}
+
+h4 {
+  font: var(--typ-display1);
+}
+
+h5 {
+  font: var(--typ-headline);
+}
+
+h6 {
+  font: var(--typ-title);
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+}
+
+@media (max-width: 600px) {
+  .container {
+    width: 100%;
+  }
+}
+
+.nav-wrapper {
+  background-color: var(--p-primary);
+  box-shadow: var(--box-shadow-4);
+}
+
+nav.site {
+  --nav-site-height: 4rem;
+
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-between;
+  white-space: nowrap;
+
+  min-height: var(--nav-site-height);
+  color: var(--palette-white);
+  width: 80%;
+  margin: auto;
+  padding-inline: 8px;
+
+  >* {
+    display: flex;
+    align-items: center;
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 1280px) {
+  nav.site {
+    width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  nav.site {
+    width: 100%;
+  }
+}
+
+nav.site a {
+  font: var(--typ-button);
+  display: inline-block;
+  line-height: var(--nav-site-height);
+  padding: 0 16px;
+  transition: background-color .2s ease-in-out;
+  background-color: transparent;
+  color: var(--palette-white);
+
+  &:hover {
+    color: inherit;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+:where(a):not([href^="#"]) {
+  display: inline-block;
+  color: var(--link-color);
+  text-decoration: none;
+  background-color: var(--link-bg);
+  border-radius: 4px;
+  padding: 4px 8px;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+  min-width: 44px;
+
+  &:hover {
+    background-color: var(--link-bg-hover);
+    color: var(--link-color-hover);
+  }
+
+  &[target="_blank"]::after {
+    content: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><title>open-in-new</title><path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z" /></svg>');
+    display: inline-block;
+    width: 1rem;
+    height: 1rem;
+  }
+
+}
+
+nav.site .textinput-lg {
+  background-color: rgba(255, 255, 255, 0.25);
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  font-size: 1rem;
+  line-height: 2rem;
+  vertical-align: middle;
+  flex-grow: 1;
+  transition: background-color .2s ease-in-out, width .2s ease-in-out, box-shadow .2s ease-in-out;
+  padding-inline: 1rem;
+
+  &::placeholder {
+    color: white;
+  }
+
+  &:focus {
+    background-color: white;
+    box-shadow: var(--box-shadow-9);
+
+    &::placeholder {
+      color: transparent;
+      text-align: center;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  nav.site .textinput-lg {
+    width: 100%;
+  }
+}
+
+nav.site > *:first-child > *:first-child {
+  padding-left: 16px;
+}
+
+nav.site :where(h1, h2, h3, h4, h5, h6) {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  line-height: var(--nav-site-height);
+}
+
+.circle {
+  border-radius: 50% 50%;
+}

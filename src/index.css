@@ -1,0 +1,133 @@
+@import "./styles/material.css";
+@import "./styles/posts.css";
+@import "./styles/pager.css";
+@import "./styles/content.css";
+
+#_layout {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  margin-inline: 60px;
+  padding-block: 24px;
+  gap: 8px;
+  row-gap: 0;
+}
+
+@media (max-width: 720px) {
+  #_layout {
+    margin-inline: 8px;
+    grid-template-columns: 1fr;
+  }
+}
+
+#_layout> :first-child {
+  max-width: 560px;
+}
+
+.avatar {
+  width: 60px;
+  height: 60px;
+}
+
+.card {
+  background-color: var(--palette-white);
+  box-shadow: var(--box-shadow-2);
+  padding: 8px 0 16px;
+  border: 1px solid var(--palette-grey-300);
+
+  & > * {
+    margin-inline: 8px;
+  }
+
+  &:hover {
+    box-shadow: var(--box-shadow-4);
+  }
+}
+
+.author-head {
+  display: grid;
+  grid-template-columns: 60px 1fr;
+  grid-template-rows: 1fr auto;
+    align-items: center;
+    column-gap: 12px;
+
+  &>:first-child {
+    grid-row: 1 /3;
+    grid-column: 1/1;
+  }
+
+  &>* {
+    grid-column: 2/2;
+  }
+
+  &>:nth-child(2) {
+    grid-row: 1 / 1;
+  }
+
+  &>:nth-child(3) {
+    grid-row:  2/ 2;
+  }
+}
+
+.link-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  padding: 0;
+  gap: 16px;
+
+  > li {
+    display: flex;
+    &::before {
+      display: inline-flex;
+      width: 1.25rem;
+      height: 1.25rem;
+      padding: 4px;
+      content: "";
+      object-fit: contain;
+      overflow: hidden;
+    }
+
+    &.mastodon::before {
+      /* WebKit and Blink both have problem on applying the object-fit. (Only Gecko implements it correctly)
+        So we could not use content here. */
+      background-image: url("./assets/mastodon-purple.svg");
+      background-size: contain;
+      background-origin: content-box;
+      background-repeat: no-repeat;
+      /* content: url("./assets/mastodon-purple.svg"); */
+    }
+  }
+}
+
+.chip-group {
+  display: flex;
+  flex-flow: row wrap;
+  gap: 16px;
+  column-gap: 8px;
+}
+
+:where(ul, ol).chip-group {
+  > * {
+    display: inline-block;
+  }
+}
+
+.chip {
+  border-radius: 1.5rem;
+  padding: 0 12px;
+  line-height: 2rem;
+  font-size: 0.8125rem;
+  text-align: center;
+}
+
+.hottag-chip {
+  background-color: var(--p-secondary);
+  color: var(--p-secondary-fg);
+
+  &:is(:hover, :focus) {
+    background-color: var(--p-secondary);
+    color: var(--p-secondary-fg);
+    filter: saturate(0.65);
+  }
+}
+

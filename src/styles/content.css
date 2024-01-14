@@ -1,0 +1,227 @@
+@import "./codehighlight/xcode.css";
+
+.content {
+  line-height: 1.5;
+
+  >p {
+    padding: 16px;
+
+    >img {
+      width: 100%;
+      object-fit: contain;
+      object-position: 50% 50%;
+      min-height: 44px;
+      max-height: 40vh;
+    }
+
+    >a>img {
+      max-width: 100%;
+      object-fit: contain;
+    }
+  }
+
+  > :where(h1, h2, h3, h4, h5, h6) {
+    margin-inline: 16px;
+    hyphens: auto;
+    text-wrap: wrap;
+    text-wrap: pretty;
+  }
+
+  >#more {
+    display: block;
+    width: 100%;
+    border-top: 1px solid var(--palette-grey-200);
+  }
+
+  > :where(ul, ol) {
+    background-color: var(--palette-white);
+    line-height: 1.5;
+
+    >li {
+      border-top: 1px solid transparent;
+      border-bottom: 1px solid transparent;
+      transition: border-color 220ms ease-in-out;
+
+      &:hover {
+        border-top-color: var(--palette-grey-200);
+        border-bottom-color: var(--palette-grey-400);
+
+        &+li {
+          border-bottom-color: var(--palette-grey-200);
+        }
+      }
+    }
+  }
+
+  hr {
+    border: none;
+    border-top: 1px solid var(--palette-grey-300);
+    margin-inline: 16px;
+  }
+
+  > :where(h2, h3, h4, h5, h6) {
+    margin-top: 16px;
+    margin-bottom: 8px;
+  }
+}
+
+.table-responsive {
+  max-width: 100%;
+  overflow-y: auto;
+}
+
+:where(.content > table, .content > .table-responsive > table) {
+  background-color: var(--table-background-color);
+  width: 100%;
+  white-space: nowrap;
+  border: 1px solid var(--palette-grey-300);
+  border-collapse: collapse;
+
+  > :where(thead, tbody) > tr {
+    & > :first-child {
+      padding-inline-start: 16px;
+    }
+
+    & > :last-child {
+      padding-inline-end: 16px;
+    }
+  }
+
+  >thead {
+    color: var(--table-header-color);
+
+    >tr {
+      border-bottom: 1px solid var(--palette-grey-300);
+      >th {
+        padding-block: 15px;
+        text-align: start;
+
+        &:hover, &.table-column-hover {
+          color: var(--table-content-color);
+        }
+
+        &[align="center"] {
+          text-align: center;
+        }
+
+        &[align="right"] {
+          text-align: end;
+        }
+      }
+    }
+  }
+
+  >tbody {
+    color: var(--table-content-color);
+
+    >tr {
+      >td {
+        padding-block: 15px;
+        text-align: start;
+
+        &[align="center"] {
+          text-align: center;
+        }
+
+        &[align="right"] {
+          text-align: end;
+        }
+      }
+
+      &:first-child {
+        border-top: 1px solid transparent;
+      }
+
+      &+& {
+        border-top: 1px solid var(--palette-grey-300);
+      }
+
+      &:hover {
+        background-color: var(--palette-grey-200);
+      }
+    }
+  }
+}
+
+.content figure {
+  border-radius: 2px;
+
+  &.highlight {
+    padding: 0 8px;
+    outline: 1px solid var(--palette-grey-300);
+    transition: box-shadow 220ms ease-in-out;
+    line-height: 1.25;
+    min-height: 44px;
+
+    &:hover {
+      box-shadow: var(--box-shadow-4);
+    }
+
+    .gutter {
+      border-inline-end: 1px solid var(--palette-grey-200);
+      margin-inline-end: 8px;
+
+      >pre {
+        >.line {
+          display: block;
+          width: 100%;
+          text-align: end;
+        }
+
+        >br {
+          display: none;
+        }
+      }
+    }
+
+    .code {
+      .line {
+        border-bottom: 1px solid transparent;
+
+        &:hover {
+          border-bottom: 1px solid var(--palette-grey-500);
+        }
+      }
+    }
+  }
+}
+
+.content kbd {
+  padding: 6px;
+  margin-inline: 2px;
+  background-color: var(--palette-black);
+  color: var(--palette-white);
+  border-radius: 4px;
+}
+
+.content dl {
+  >dt {
+    font: var(--typ-body2);
+    margin-left: 16px;
+  }
+
+  >dd {
+    margin-left: 32px;
+  }
+}
+
+.content blockquote {
+  background-color: white;
+  padding-left: 12px;
+  margin-block: 16px;
+  border: 1px solid var(--palette-grey-200);
+  border-left: 4px solid var(--p-secondary);
+
+  &:hover, &:focus {
+    outline: 1px solid var(--palette-grey-400);
+  }
+}
+
+.content .video-container {
+  width: 100%;
+  border: 1px solid var(--palette-grey-200);
+
+  > iframe {
+    width: 100%;
+  }
+}

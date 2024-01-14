@@ -1,0 +1,12 @@
+
+site_nav_links:
+  所有文章: /
+  归档: /archives
+
+site_links:
+  - name: "example@mastodon.social"
+    href: "https://mastodon.social/example"
+    rel: "me"
+    class: "mastodon"
+  - name: "Subscribe (Atom)"
+    href: "/atom.xml"
