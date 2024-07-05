@@ -8,20 +8,23 @@
 .post-item {
   display: block;
   padding: 12px 0;
-  > *:not(:where(figure)) {
+
+  >*:not(:where(figure)) {
     margin-left: 4px;
     margin-right: 4px;
   }
+
   border: 1px solid transparent;
   border-top-color: var(--palette-grey-300);
   transition: border-color 220ms ease-in-out;
 
-  &:hover, &:focus-within {
+  &:hover,
+  &:focus-within {
     border-top-color: var(--palette-grey-400);
     border-left-color: var(--palette-grey-400);
     border-right-color: var(--palette-grey-400);
 
-    + .post-item {
+    +.post-item {
       border-top-color: var(--palette-grey-400);
     }
 
@@ -41,7 +44,7 @@
   & p {
     line-height: 1.375;
 
-    & > a {
+    &>a {
       line-height: 1.175;
     }
   }
@@ -54,28 +57,28 @@
 .post-item-title {
   display: grid;
   justify-content: space-between;
-  align-items: center;
   margin-bottom: 16px;
   gap: 8px;
   grid-template-columns: auto auto;
 
-  @media (width <= 400px) {
+  @media (width <=400px) {
     & {
       grid-template-columns: 1fr;
     }
 
-    & > :last-child {
+    &> :last-child {
       text-align: end;
     }
   }
 
-  & > a {
+  &>a {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
   }
 
-  & > time {
+  &>time {
     color: var(--palette-grey-700);
+    margin-top: 0.5em;
   }
 }
