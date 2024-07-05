@@ -43,7 +43,7 @@
           </div>
         </div>
       </main>
-      <div style="display: flex; flex-flow: column nowrap; gap: 16px;">
+      <div style="display: flex; flex-flow: column nowrap; gap: 16px; height: fit-content; position: sticky; top: 0;">
         <div class="card" style="display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between">
           <div class="author-head">
             <img class="circle avatar" src="{{ gravatar(config.email if config.email else 'example@foo.bar') }}"/>
