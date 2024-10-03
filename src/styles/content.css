@@ -152,6 +152,7 @@
     transition: box-shadow 220ms ease-in-out;
     line-height: 1.25;
     min-height: 44px;
+    font-family: "Roboto Mono", "Noto Sans Mono", monospace;
 
     &:hover {
       box-shadow: var(--box-shadow-4);
